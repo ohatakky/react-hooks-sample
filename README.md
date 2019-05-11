@@ -24,5 +24,46 @@ state が「作成」されるのはコンポーネントの初回レンダー�
 2. フックを呼び出すのはReactの関数内のみ
 'ruleを矯正できるlintがある'
 
+### Reactは、どのuseStateの呼び出しがどのstateに対応するのか、どうやって知る?
+　Reactはフックが呼ばれる順番に依存している。フックの呼び出しの順序が毎回のレンダーごとに同じため。
 
+```
+// ------------
+// First render
+// ------------
+useState('Mary')           // 1. Initialize the name state variable with 'Mary'
+useEffect(persistForm)     // 2. Add an effect for persisting the form
+useState('Poppins')        // 3. Initialize the surname state variable with 'Poppins'
+useEffect(updateTitle)     // 4. Add an effect for updating the title
+
+// -------------
+// Second render
+// -------------
+useState('Mary')           // 1. Read the name state variable (argument is ignored)
+useEffect(persistForm)     // 2. Replace the effect for persisting the form
+useState('Poppins')        // 3. Read the surname state variable (argument is ignored)
+useEffect(updateTitle)     // 4. Replace the effect for updating the title
+
+// ...
+```
+
+`そのため、ifで処理をスキップしてしまうと、hookの呼ばれる順番が変わってしまう。`
+
+`lint必須`
+
+
+### hokks　API
+基本のフック
+- useState
+- useEffect
+- useContext
+
+追加のフック
+- useReducer
+- useCallback
+- eMemo
+- eRef
+- eImperativeHandle
+- eLayoutEffect
+- eDebugValue
 
