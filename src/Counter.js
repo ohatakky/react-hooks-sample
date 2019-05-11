@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Counter() {
   // useState は現在のstateの値と、それを更新するための関数をペアにして返す
   const [count, setCount] = useState(0);
+
+  // 副作用を実行 (ex. DOMを手動で変更
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
 
   return (
     <div>
