@@ -2,6 +2,8 @@
 
 ### docs
 
+hooksのpull request : https://github.com/facebook/react/pull/13968
+
 hooks add v16.8.0 : https://github.com/facebook/react/tree/v16.8.0
 
 doc : https://ja.reactjs.org/docs/hooks-intro.html
