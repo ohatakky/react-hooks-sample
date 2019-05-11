@@ -1,15 +1,18 @@
 > yarn start
 
 ### docs
-https://ja.reactjs.org/docs/hooks-intro.html
 
-https://github.com/facebook/react/blob/master/packages/react/src/ReactHooks.js
+hooks add v16.8.0 : https://github.com/facebook/react/tree/v16.8.0
 
-https://gist.github.com/mizchi/fa00890df2c8d1f27b9ca94b5cb8dd1d
+doc : https://ja.reactjs.org/docs/hooks-intro.html
 
-hooksとは、関数コンポーネントにstateやライフサイクルといったReactの機能を“接続する”ための関数。
+code : https://github.com/facebook/react/blob/master/packages/react/src/ReactHooks.js
+
+article : https://gist.github.com/mizchi/fa00890df2c8d1f27b9ca94b5cb8dd1d
 
 ### memo
+`hooksとは、関数コンポーネントにstateやライフサイクルといったReactの機能を“接続する”ための関数`
+
 recomposeのwithStateをuseStateに代替できる。
 
 たぶんrecomposeだと、内部的にclass componentになっている。
@@ -70,4 +73,10 @@ useEffect(updateTitle)     // 4. Replace the effect for updating the title
 - eImperativeHandle
 - eLayoutEffect
 - eDebugValue
+
+### hokksの内部動作
+Hooks API の裏にあるアイデアは、hook 関数の返り値の、配列の二番目の要素として setter 関数を渡し、その setter が hook によって state をコントロールすることをできるようにする、というもの
+
+stateとsetterをそれぞれ配列に積む。
+順番の保証は実行順序に依存する。
 
